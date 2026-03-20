@@ -33,7 +33,7 @@ const globalStyle = `
     background: var(--gray-bg);
     color: var(--text-dark);
     -webkit-font-smoothing: antialiased;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Inter', sans-serif; 
   }
 
   @keyframes fadeUp {

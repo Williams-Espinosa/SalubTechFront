@@ -38,7 +38,7 @@ export default function Sidebar({ items = [], sections = [], active, onChange, o
         <div style={{ width:36, height:36, borderRadius:10, background:"var(--blue)", display:"flex", alignItems:"center", justifyContent:"center", flexShrink:0 }}>
           <IcSteth s={18}/>
         </div>
-        <div style={{ fontFamily:"'Syne',sans-serif", fontSize:15, fontWeight:800 }}>HospTrack</div>
+        <div style={{ fontFamily:"'TuFuente',sans-serif", fontSize:15, fontWeight:800 }}>HospTrack</div>
       </div>
 
       {/* Nav items flat o por secciones */}

@@ -19,7 +19,7 @@ export default function RhRegistros() {
     <div style={{ padding:32, animation:"fadeUp .4s .05s ease both" }}>
       <div style={{ display:"flex", alignItems:"flex-start", justifyContent:"space-between", marginBottom:8 }}>
         <div>
-          <div style={{ fontFamily:"'Syne',sans-serif", fontSize:20, fontWeight:800 }}>Bitácora de Sistema</div>
+          <div style={{ fontFamily:"'TuFuente',sans-serif", fontSize:20, fontWeight:800 }}>Bitácora de Sistema</div>
           <div style={{ fontSize:13, color:"var(--text-mid)", marginTop:4 }}>Registros generales de acceso y modificaciones técnicas.</div>
         </div>
         <div style={{ display:"flex", gap:10, alignItems:"center" }}>

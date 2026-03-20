@@ -15,7 +15,7 @@ export default function RhAuditoria() {
     <div style={{ padding:32, animation:"fadeUp .4s .05s ease both" }}>
       <div style={{ display:"flex", alignItems:"flex-start", justifyContent:"space-between", marginBottom:24 }}>
         <div>
-          <div style={{ fontFamily:"'Syne',sans-serif", fontSize:22, fontWeight:800 }}>Auditoría &amp; Desempeño</div>
+          <div style={{ fontFamily:"'TuFuente',sans-serif", fontSize:22, fontWeight:800 }}>Auditoría &amp; Desempeño</div>
           <div style={{ fontSize:13, color:"var(--text-mid)", marginTop:4 }}>Supervisión de incidentes y control de calidad clínica.</div>
         </div>
         <div style={{ display:"flex", background:"#fff", border:"1.5px solid var(--border)", borderRadius:"var(--radius-sm)", padding:4 }}>
@@ -48,7 +48,7 @@ export default function RhAuditoria() {
                       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--orange)" strokeWidth="2" strokeLinecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><circle cx="12" cy="16" r=".5" fill="var(--orange)"/></svg>
                     </div>
                     <div>
-                      <div style={{ fontFamily:"'Syne',sans-serif", fontSize:15, fontWeight:700 }}>{inc.patient}</div>
+                      <div style={{ fontFamily:"'TuFuente',sans-serif", fontSize:15, fontWeight:700 }}>{inc.patient}</div>
                       <div style={{ fontSize:11, color:"var(--text-soft)", marginTop:1 }}>{inc.pid}</div>
                     </div>
                   </div>
@@ -83,7 +83,7 @@ export default function RhAuditoria() {
                   <td style={{ padding:"18px 20px", borderBottom:"1px solid var(--border)" }}><div style={{ fontWeight:600 }}>{p.name}</div><div style={{ fontSize:12, color:"var(--text-soft)" }}>ID: {p.id}</div></td>
                   <td style={{ padding:"18px 20px", borderBottom:"1px solid var(--border)" }}><span style={{ background:"var(--gray-bg)", padding:"4px 10px", borderRadius:8, fontWeight:600, fontSize:13 }}>{p.bed}</span></td>
                   <td style={{ padding:"18px 20px", borderBottom:"1px solid var(--border)" }}>
-                    <span style={{ display:"inline-flex", alignItems:"center", justifyContent:"center", width:28, height:28, borderRadius:"50%", fontFamily:"'Syne',sans-serif", fontSize:13, fontWeight:800, background:p.events>0?"#FFF5F5":"var(--gray-bg)", color:p.events>0?"var(--red)":"var(--text-soft)" }}>{p.events}</span>
+                    <span style={{ display:"inline-flex", alignItems:"center", justifyContent:"center", width:28, height:28, borderRadius:"50%", fontFamily:"'TuFuente',sans-serif", fontSize:13, fontWeight:800, background:p.events>0?"#FFF5F5":"var(--gray-bg)", color:p.events>0?"var(--red)":"var(--text-soft)" }}>{p.events}</span>
                   </td>
                   <td style={{ padding:"18px 20px", borderBottom:"1px solid var(--border)" }}>
                     <button style={{ width:32, height:32, borderRadius:8, background:"var(--blue-light)", display:"flex", alignItems:"center", justifyContent:"center", cursor:"pointer", border:"none" }}><IcDoc c="var(--blue)" s={14}/></button>

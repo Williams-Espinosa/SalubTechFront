@@ -9,7 +9,7 @@ function Navbar({ stats }) {
       <div style={{ display:"flex", alignItems:"center", gap:10 }}>
         <div style={{ width:10, height:10, borderRadius:"50%", background:"var(--blue)" }}/>
         <div>
-          <div style={{ fontFamily:"'Syne',sans-serif", fontSize:15, fontWeight:700 }}>SALUDTECH</div>
+          <div style={{ fontFamily:"'TuFuente',sans-serif", fontSize:15, fontWeight:700 }}>SALUDTECH</div>
           <div style={{ fontSize:10, fontWeight:500, letterSpacing:1.2, color:"var(--text-soft)", textTransform:"uppercase" }}>Hospital Management System</div>
         </div>
       </div>
@@ -19,7 +19,7 @@ function Navbar({ stats }) {
             <div key={i} style={{ display:"flex", alignItems:"center", gap:40 }}>
               {i > 0 && <div style={{ width:1, background:"var(--border)", alignSelf:"stretch", margin:"16px 0" }}/>}
               <div>
-                <div style={{ fontFamily:"'Syne',sans-serif", fontSize:18, fontWeight:800 }}>{s.val}</div>
+                <div style={{ fontFamily:"'TuFuente',sans-serif", fontSize:18, fontWeight:800 }}>{s.val}</div>
                 <div style={{ fontSize:9, fontWeight:600, letterSpacing:1.4, textTransform:"uppercase", color:"var(--text-soft)", marginTop:1, textAlign:"right" }}>{s.label}</div>
               </div>
             </div>

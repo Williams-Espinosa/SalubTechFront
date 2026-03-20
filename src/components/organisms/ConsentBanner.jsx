@@ -13,7 +13,7 @@ export default function ConsentBanner({ onAccept, onReject, onPolicy }) {
           <div style={{ width:40, height:40, background:"var(--blue-light)", borderRadius:10, display:"flex", alignItems:"center", justifyContent:"center", flexShrink:0 }}>
             <IcConsent/>
           </div>
-          <div style={{ fontFamily:"'Syne',sans-serif", fontSize:17, fontWeight:700 }}>Uso de Cookies en SaludTech</div>
+          <div style={{ fontFamily:"'TuFuente',sans-serif", fontSize:17, fontWeight:700 }}>Uso de Cookies en SaludTech</div>
         </div>
         <p style={{ fontSize:13.5, lineHeight:1.7, color:"var(--text-mid)" }}>
           Utilizamos cookies y tecnologías similares para mejorar tu experiencia en nuestra plataforma,
