@@ -25,7 +25,7 @@ const globalStyle = `
   html, body, #root { height: 100%; }
 
   body {
-    font-family: 'DM Sans', sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     background: var(--gray-bg);
     color: var(--text-dark);
     -webkit-font-smoothing: antialiased;
