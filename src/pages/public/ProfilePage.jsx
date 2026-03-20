@@ -1,4 +1,3 @@
-// pages/public/ProfilePage.jsx
 import LandingLayout from "../../components/templates/LandingLayout";
 import { IcClip, IcSteth, IcUsers, IcLock } from "../../components/atoms/Icons";
 
@@ -12,7 +11,7 @@ export default function ProfilePage({ onSelect }) {
   return (
     <LandingLayout stats={null}>
       <div style={{ minHeight:"calc(100vh - 64px)", display:"flex", flexDirection:"column", alignItems:"center", justifyContent:"center", padding:"60px 24px" }}>
-        {/* Logo */}
+        {}
         <div style={{ display:"flex", flexDirection:"column", alignItems:"center", gap:12, marginBottom:8, animation:"fadeUp .6s .05s ease both" }}>
           <div style={{ width:64, height:64, borderRadius:18, background:"var(--blue)", display:"flex", alignItems:"center", justifyContent:"center", boxShadow:"0 8px 24px rgba(61,91,245,.35)" }}>
             <IcSteth s={28}/>
@@ -25,7 +24,7 @@ export default function ProfilePage({ onSelect }) {
           Selecciona tu perfil para iniciar sesión
         </p>
 
-        {/* Cards */}
+        {}
         <div style={{ display:"grid", gridTemplateColumns:"repeat(3,260px)", gap:24 }}>
           {PROFILES.map((p, i) => (
             <div
@@ -46,7 +45,7 @@ export default function ProfilePage({ onSelect }) {
           ))}
         </div>
 
-        {/* Footer */}
+        {}
         <div style={{ marginTop:48, display:"flex", flexDirection:"column", alignItems:"center", gap:6, animation:"fadeUp .6s .35s ease both" }}>
           <div style={{ display:"flex", alignItems:"center", gap:6, fontSize:10, fontWeight:700, letterSpacing:1.4, textTransform:"uppercase", color:"var(--text-soft)" }}>
             <IcLock/> Acceso restringido a personal autorizado

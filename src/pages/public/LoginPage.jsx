@@ -1,4 +1,3 @@
-// pages/public/LoginPage.jsx
 import { useState } from "react";
 import { IcSteth, IcUser, IcLock, IcShield, IcArrow, IcArrowL } from "../../components/atoms/Icons";
 import Button from "../../components/atoms/Button";
@@ -18,7 +17,7 @@ export default function LoginPage({ role, onBack, onLogin }) {
 
   return (
     <div className="page" style={{ minHeight:"100vh", display:"flex", alignItems:"center", justifyContent:"center", padding:24, background:"linear-gradient(135deg,#e8f0fe 0%,#d4e3fc 40%,#e8f5e9 100%)", position:"relative" }}>
-      {/* Back button */}
+      {}
       <button
         onClick={onBack}
         style={{ position:"absolute", top:24, left:24, width:44, height:44, borderRadius:"50%", background:"var(--blue)", border:"none", cursor:"pointer", display:"flex", alignItems:"center", justifyContent:"center", boxShadow:"0 4px 16px rgba(61,91,245,.4)", transition:"transform .2s,background .2s" }}
@@ -28,9 +27,9 @@ export default function LoginPage({ role, onBack, onLogin }) {
         <IcArrowL/>
       </button>
 
-      {/* Card */}
+      {}
       <div style={{ background:"#fff", borderRadius:"var(--radius)", overflow:"hidden", width:"100%", maxWidth:420, boxShadow:"var(--shadow-lg)", animation:"fadeUp .5s .1s ease both" }}>
-        {/* Header */}
+        {}
         <div style={{ background:"var(--blue)", padding:"36px 32px 32px", textAlign:"center" }}>
           <div style={{ display:"flex", justifyContent:"center" }}>
             <div style={{ width:56, height:56, borderRadius:16, background:"rgba(255,255,255,.2)", display:"inline-flex", alignItems:"center", justifyContent:"center", marginBottom:16 }}>
@@ -41,7 +40,7 @@ export default function LoginPage({ role, onBack, onLogin }) {
           <div style={{ fontSize:13, color:"rgba(255,255,255,.75)", marginTop:6 }}>{ROLE_LABELS[role]}</div>
         </div>
 
-        {/* Body */}
+        {}
         <div style={{ padding:32, display:"flex", flexDirection:"column", gap:20 }}>
           <div>
             <label style={{ display:"block", fontSize:10, fontWeight:700, letterSpacing:1.3, textTransform:"uppercase", color:"var(--text-soft)", marginBottom:8 }}>Identificación</label>
@@ -60,7 +59,7 @@ export default function LoginPage({ role, onBack, onLogin }) {
           </div>
         </div>
         <div style={{ textAlign:"center", padding:16, borderTop:"1px solid var(--border)", fontSize:11.5, color:"var(--text-soft)" }}>
-          © 2026 MedControl Systems. Todos los derechos reservados.
+          © 2026 SalubTech. Todos los derechos reservados.
         </div>
       </div>
     </div>

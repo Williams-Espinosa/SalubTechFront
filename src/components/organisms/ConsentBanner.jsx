@@ -1,4 +1,3 @@
-// organisms/ConsentBanner.jsx
 import { IcConsent } from "../atoms/Icons";
 import Button from "../atoms/Button";
 

@@ -1,6 +1,6 @@
 import { IcShield } from "../atoms/Icons";
 
-function Navbar({ stats }) {
+function Navbar({ stats }) { 
   return (
     <nav style={{ position:"fixed", top:0, left:0, right:0, zIndex:100, display:"flex", alignItems:"center", justifyContent:"space-between", padding:"0 48px", height:64, background:"rgba(255,255,255,.9)", backdropFilter:"blur(12px)", borderBottom:"1px solid var(--border)" }}>
       <div style={{ display:"flex", alignItems:"center", gap:10 }}>

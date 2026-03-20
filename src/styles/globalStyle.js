@@ -62,4 +62,4 @@ const globalStyle = `
   }
 `;
 
-export default globalStyle;
+export default globalStyle; 

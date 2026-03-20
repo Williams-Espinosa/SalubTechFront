@@ -1,4 +1,3 @@
-// pages/public/HeroPage.jsx
 import { useState } from "react";
 import LandingLayout from "../../components/templates/LandingLayout";
 import ConsentBanner from "../../components/organisms/ConsentBanner";
@@ -26,7 +25,7 @@ export default function HeroPage({ onStart, onPolicy }) {
   return (
     <LandingLayout stats={[{ val:"100%", label:"Seguridad Clínica" }]}>
       <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", minHeight:"calc(100vh - 64px)", overflow:"hidden" }}>
-        {/* Left */}
+        {}
         <div style={{ display:"flex", flexDirection:"column", justifyContent:"center", padding:"80px 64px", animation:"fadeUp .7s .1s ease both" }}>
           <div style={{ display:"inline-flex", alignItems:"center", gap:6, background:"var(--blue-light)", borderRadius:100, padding:"6px 14px", marginBottom:28, fontSize:12, fontWeight:600, color:"var(--blue)", width:"fit-content" }}>
             <IcShield s={13}/> Sistema Hospitalario
@@ -52,7 +51,7 @@ export default function HeroPage({ onStart, onPolicy }) {
           </button>
         </div>
 
-        {/* Right */}
+        {}
         <div style={{ position:"relative", overflow:"hidden", background:"linear-gradient(135deg,#E8ECFF,#D6DCFF)" }}>
           <div style={{ position:"absolute", inset:0, display:"flex", alignItems:"center", justifyContent:"center", padding:"60px 48px 60px 24px", animation:"fadeUp .7s .25s ease both" }}>
             <div style={{ width:"100%", maxWidth:480, borderRadius:24, overflow:"hidden", boxShadow:"var(--shadow-lg)", aspectRatio:"4/3" }}>

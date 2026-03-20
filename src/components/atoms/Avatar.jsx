@@ -1,10 +1,7 @@
-// atoms/Avatar.jsx
-
 /**
- * Avatar atom — muestra iniciales sobre fondo de color.
- * @param {string} name   - nombre completo (se extraen iniciales)
- * @param {number} size   - tamaño en px (default 36)
- * @param {string} bg     - color de fondo (default var(--blue))
+ * @param {string} name  
+ * @param {number} size  
+ * @param {string} bg     
  */
 export default function Avatar({ name = "", size = 36, bg = "var(--blue)", style = {} }) {
   const initials = name

@@ -1,9 +1,3 @@
-// atoms/Button.jsx
-
-/**
- * Button atom reutilizable.
- * variant: "primary" | "secondary" | "danger" | "ghost"
- */
 export default function Button({ children, onClick, variant = "primary", disabled = false, fullWidth = false, style = {} }) {
   const base = {
     display:"inline-flex", alignItems:"center", justifyContent:"center", gap:8,

@@ -1,4 +1,3 @@
-// pages/supervisor/SupEntregaTurno.jsx
 import { useState } from "react";
 import Button from "../../components/atoms/Button";
 import { IcClock, IcCheckCircle, IcArrow } from "../../components/atoms/Icons";

@@ -1,4 +1,3 @@
-// pages/enfermero/DashboardHome.jsx
 import { useTimer } from "../../hooks/useTimer";
 import PatientCard from "../../components/molecules/PatientCard";
 import TaskItem    from "../../components/molecules/TaskItem";
@@ -10,7 +9,7 @@ export default function DashboardHome({ tasks, onToggleTask, onAtender }) {
 
   return (
     <div style={{ padding:32, animation:"fadeUp .4s .05s ease both" }}>
-      {/* Header row */}
+      {}
       <div style={{ display:"flex", alignItems:"flex-start", justifyContent:"space-between", marginBottom:28, background:"#fff", borderRadius:"var(--radius)", padding:"28px 32px", boxShadow:"var(--shadow-sm)" }}>
         <div>
           <div style={{ fontFamily:"'TuFuente',sans-serif", fontSize:24, fontWeight:800 }}>Resumen del Turno</div>
@@ -35,9 +34,9 @@ export default function DashboardHome({ tasks, onToggleTask, onAtender }) {
         </div>
       </div>
 
-      {/* Grid */}
+      {}
       <div style={{ display:"grid", gridTemplateColumns:"1fr 340px", gap:24 }}>
-        {/* Patients */}
+        {}
         <div>
           <div style={{ fontFamily:"'TuFuente',sans-serif", fontSize:16, fontWeight:700, display:"flex", alignItems:"center", gap:8, marginBottom:20 }}>
             <IcUsers c="var(--text-dark)" s={16}/> Pacientes Asignados
@@ -48,7 +47,7 @@ export default function DashboardHome({ tasks, onToggleTask, onAtender }) {
           </div>
         </div>
 
-        {/* Tasks */}
+        {}
         <div>
           <div style={{ fontFamily:"'TuFuente',sans-serif", fontSize:16, fontWeight:700, display:"flex", alignItems:"center", gap:8, marginBottom:20 }}>
             <IcClip c="var(--text-dark)" s={16}/> Tareas Pendientes

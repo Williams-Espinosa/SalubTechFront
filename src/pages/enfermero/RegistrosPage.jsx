@@ -1,4 +1,3 @@
-// pages/enfermero/RegistrosPage.jsx
 import { useState } from "react";
 import Button from "../../components/atoms/Button";
 import Badge  from "../../components/atoms/Badge";
@@ -18,7 +17,7 @@ export default function RegistrosPage({ initialPatientId = 1 }) {
 
   return (
     <div style={{ padding:32, animation:"fadeUp .4s .05s ease both" }}>
-      {/* Header */}
+      {}
       <div style={{ display:"flex", alignItems:"flex-start", justifyContent:"space-between", marginBottom:28 }}>
         <div>
           <div style={{ fontFamily:"'TuFuente',sans-serif", fontSize:22, fontWeight:800 }}>Registrar Incidentes y Notas</div>
@@ -30,7 +29,7 @@ export default function RegistrosPage({ initialPatientId = 1 }) {
       </div>
 
       <div style={{ background:"#fff", borderRadius:"var(--radius)", padding:32, boxShadow:"var(--shadow-sm)" }}>
-        {/* Patient selector */}
+        {}
         <div style={{ marginBottom:24 }}>
           <div style={{ fontSize:10, fontWeight:700, letterSpacing:1.2, textTransform:"uppercase", color:"var(--text-soft)", marginBottom:10 }}>Paciente</div>
           <div style={{ display:"flex", gap:10, flexWrap:"wrap" }}>
@@ -53,7 +52,7 @@ export default function RegistrosPage({ initialPatientId = 1 }) {
               );
             })}
           </div>
-          {/* Selected summary */}
+          {}
           <div style={{ marginTop:12, background:"var(--gray-bg)", borderRadius:"var(--radius-sm)", padding:"12px 16px", display:"flex", alignItems:"center", gap:12 }}>
             <div style={{ width:38, height:38, borderRadius:10, background:"var(--blue)", display:"flex", alignItems:"center", justifyContent:"center", fontFamily:"'TuFuente',sans-serif", fontSize:14, fontWeight:700, color:"#fff", flexShrink:0 }}>{initials}</div>
             <div>
@@ -64,7 +63,7 @@ export default function RegistrosPage({ initialPatientId = 1 }) {
           </div>
         </div>
 
-        {/* Form */}
+        {}
         <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:20, marginBottom:20 }}>
           <div>
             <label style={{ display:"block", fontSize:10, fontWeight:700, letterSpacing:1.2, textTransform:"uppercase", color:"var(--text-soft)", marginBottom:8 }}>Tipo de Nota</label>
@@ -94,7 +93,7 @@ export default function RegistrosPage({ initialPatientId = 1 }) {
         </div>
       </div>
 
-      {/* Legal */}
+      {}
       <div style={{ background:"var(--blue-light)", borderRadius:"var(--radius-sm)", padding:"20px 24px", display:"flex", alignItems:"flex-start", gap:14, marginTop:24 }}>
         <div style={{ width:36, height:36, borderRadius:10, background:"var(--blue)", display:"flex", alignItems:"center", justifyContent:"center", flexShrink:0 }}><IcShield c="white" s={18}/></div>
         <div>

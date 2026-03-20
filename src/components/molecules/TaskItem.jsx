@@ -1,4 +1,3 @@
-// molecules/TaskItem.jsx
 import { IcCheck } from "../atoms/Icons";
 
 /**

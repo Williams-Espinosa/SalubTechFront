@@ -1,4 +1,3 @@
-// molecules/PatientCard.jsx
 import Badge from "../atoms/Badge";
 import { IcArrow } from "../atoms/Icons";
 

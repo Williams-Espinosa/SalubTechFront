@@ -1,12 +1,8 @@
-// pages/enfermero/EnfermeroApp.jsx
-// Shell del dashboard de enfermero — gestiona sección activa y estado compartido.
-
 import { useState } from "react";
 import DashboardLayout from "../../components/templates/DashboardLayout";
 import { IcActivity, IcClip, IcSwap } from "../../components/atoms/Icons";
 import { PATIENTS, TASKS_INIT } from "../../constants/mockData";
 
-// Secciones
 import DashboardHome    from "./DashboardHome";
 import RegistrosPage    from "./RegistrosPage";
 import EntregaTurnoPage from "./EntregaTurnoPage";

@@ -1,10 +1,5 @@
-// pages/rh/RhRegistros.jsx
 import { IcDoc, IcClock } from "../../components/atoms/Icons";
 import { BIT_LOGS } from "../../constants/mockData";
-
-// ── Import base64 files for download ─────────────────────────────────────────
-// Estas constantes las genera el build script. Para conectar al backend real,
-// reemplaza la función downloadFile por una llamada a API.RH.EXPORT_XLS/EXPORT_PDF
 import { XLSX_B64, PDF_B64 } from "../../constants/exportFiles";
 
 function downloadFile(b64, filename, mime) {

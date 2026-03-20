@@ -97,9 +97,8 @@ make_sheet(ws3,"SALUDTECH — Auditoría de Incidentes",
 
 xlsx_path = os.path.join(args.out, "bitacora.xlsx")
 wb.save(xlsx_path)
-print(f"✅ XLSX: {xlsx_path}")
+print(f"XLSX: {xlsx_path}")
 
-# ── PDF ──────────────────────────────────────────────────────────────────────
 pdf_path = os.path.join(args.out, "reporte_auditoria.pdf")
 doc = SimpleDocTemplate(pdf_path, pagesize=letter,
     leftMargin=.7*inch, rightMargin=.7*inch, topMargin=.7*inch, bottomMargin=.7*inch)
@@ -118,7 +117,6 @@ def sty(name, **kw): return ParagraphStyle(name, **kw)
 
 story = []
 
-# Header
 hdr_data = [[
     Paragraph("<b><font color='#3D5BF5' size=18>SALUDTECH</font></b><br/><font color='#8C93AA' size=8>HOSPITAL MANAGEMENT SYSTEM</font>", ss["Normal"]),
     Paragraph("<font color='#8C93AA' size=8>REPORTE DE AUDITORÍA</font><br/><b><font color='#0F1B3D' size=10>Auditoría &amp; Desempeño</font></b><br/><font color='#8C93AA' size=8>29 de Enero, 2026</font>",
@@ -128,7 +126,6 @@ ht = Table(hdr_data, colWidths=[3.5*inch,3.5*inch])
 ht.setStyle(TableStyle([("BACKGROUND",(0,0),(-1,-1),BLUE_LC),("TOPPADDING",(0,0),(-1,-1),14),("BOTTOMPADDING",(0,0),(-1,-1),14),("LEFTPADDING",(0,0),(0,-1),16),("RIGHTPADDING",(1,0),(1,-1),16)]))
 story.append(ht); story.append(Spacer(1,16))
 
-# KPIs
 kpi = [[
     Paragraph("<font color='#8C93AA' size=7>COLABORADORES</font><br/><b><font color='#0F1B3D' size=20>142</font></b><br/><font color='#38A169' size=8>+4 esta semana</font>", ss["Normal"]),
     Paragraph("<font color='#8C93AA' size=7>PACIENTES ACTIVOS</font><br/><b><font color='#0F1B3D' size=20>86</font></b><br/><font color='#4A5578' size=8>-2% ocupación</font>", ss["Normal"]),
@@ -141,7 +138,6 @@ story.append(kt); story.append(Spacer(1,20))
 
 sec_sty = sty("sec", fontName="Helvetica-Bold", fontSize=13, textColor=DARK_C, spaceBefore=18, spaceAfter=10)
 
-# Incidentes table
 story.append(Paragraph("Incidentes Registrados", sec_sty))
 ih = [["Paciente","Cama","Fecha/Hora","Descripción","Reportado por","Gravedad"]]
 ir = [[p,c,dt,desc[:50]+("…" if len(desc)>50 else ""),rep,sev] for p,pid,c,dt,desc,rep,sev in INCIDENTS]
@@ -152,7 +148,6 @@ for i,(_,_,_,_,_,_,sev) in enumerate(INCIDENTS,1):
     its+=[("TEXTCOLOR",(5,i),(5,i),sev_map.get(sev,DARK_C)),("FONTNAME",(5,i),(5,i),"Helvetica-Bold")]
 it.setStyle(TableStyle(its)); story.append(it); story.append(Spacer(1,16))
 
-# Personal table
 story.append(Paragraph("Personal del Hospital", sec_sty))
 ph=[["Nombre","ID / CURP","Rol","Especialidad","Turno","Estado"]]
 pr=[[n,i,r,s,t,e] for n,i,r,s,t,e in STAFF]
@@ -162,7 +157,6 @@ for i,(_,_,_,_,_,estado) in enumerate(STAFF,1):
     pts+=[("TEXTCOLOR",(5,i),(5,i),GREEN_C if estado=="Activo" else SOFT_C),("FONTNAME",(5,i),(5,i),"Helvetica-Bold")]
 pt.setStyle(TableStyle(pts)); story.append(pt); story.append(Spacer(1,16))
 
-# Bitácora table
 story.append(Paragraph("Bitácora de Sistema", sec_sty))
 bh=[["Evento","Usuario / Módulo","Timestamp","Estado"]]
 br=[[ev,usr,ts,st] for ev,usr,ts,st in BIT_LOGS]

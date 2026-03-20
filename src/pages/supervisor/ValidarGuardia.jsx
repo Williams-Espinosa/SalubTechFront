@@ -1,4 +1,3 @@
-// pages/supervisor/ValidarGuardia.jsx
 import { useState } from "react";
 import Button from "../../components/atoms/Button";
 import { IcSearch, IcClock, IcDoc, IcCheckCircle, IcCheck } from "../../components/atoms/Icons";
@@ -11,7 +10,7 @@ export default function ValidarGuardia() {
 
   return (
     <div style={{ display:"grid", gridTemplateColumns:"320px 1fr", minHeight:"calc(100vh - 64px)" }}>
-      {/* Left */}
+      {}
       <div style={{ borderRight:"1px solid var(--border)", background:"#fff", display:"flex", flexDirection:"column" }}>
         <div style={{ padding:20 }}>
           <div style={{ fontFamily:"'TuFuente',sans-serif", fontSize:18, fontWeight:800, marginBottom:4 }}>Validar Cierre de Guardia</div>
@@ -34,7 +33,7 @@ export default function ValidarGuardia() {
           ))}
         </div>
       </div>
-      {/* Right */}
+      {}
       <div style={{ padding:28 }}>
         {!rep ? (
           <div style={{ height:"100%", display:"flex", flexDirection:"column", alignItems:"center", justifyContent:"center", gap:16, color:"var(--text-soft)", textAlign:"center", padding:40 }}>

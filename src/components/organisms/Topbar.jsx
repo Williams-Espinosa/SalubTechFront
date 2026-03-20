@@ -1,4 +1,3 @@
-// organisms/Topbar.jsx
 import { IcSearch } from "../atoms/Icons";
 import Avatar from "../atoms/Avatar";
 

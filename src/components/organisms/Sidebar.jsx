@@ -1,14 +1,11 @@
-// organisms/Sidebar.jsx
 import { IcSteth, IcLogout } from "../atoms/Icons";
 
 /**
- * Sidebar organism reutilizable.
- *
- * @param {Array}    items    - [{ id, label, icon: (color)=>JSX }]
- * @param {Array}    sections - [{ label, items }] — para sidebars con grupos (RH)
- * @param {string}   active   - id del ítem activo
- * @param {Function} onChange - (id) => void
- * @param {Function} onLogout - () => void
+ * @param {Array}    items   
+ * @param {Array}    sections 
+ * @param {string}   active  
+ * @param {Function} onChange 
+ * @param {Function} onLogout 
  */
 export default function Sidebar({ items = [], sections = [], active, onChange, onLogout }) {
   const navItemStyle = isActive => ({

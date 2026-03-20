@@ -1,4 +1,3 @@
-// pages/supervisor/SupRegistros.jsx
 import Badge  from "../../components/atoms/Badge";
 import { IcUser, IcClock, IcFilter } from "../../components/atoms/Icons";
 import { SUP_PATIENTS } from "../../constants/mockData";

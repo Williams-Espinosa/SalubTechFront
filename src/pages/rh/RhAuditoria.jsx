@@ -1,4 +1,3 @@
-// pages/rh/RhAuditoria.jsx
 import { useState } from "react";
 import Badge from "../../components/atoms/Badge";
 import { IcDoc } from "../../components/atoms/Icons";

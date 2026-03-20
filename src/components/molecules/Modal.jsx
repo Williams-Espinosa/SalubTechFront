@@ -1,9 +1,3 @@
-// molecules/Modal.jsx
-
-/**
- * Modal genérico con overlay.
- * Cierra al hacer clic fuera si onClose está definido.
- */
 export default function Modal({ title, subtitle, onClose, children }) {
   return (
     <div

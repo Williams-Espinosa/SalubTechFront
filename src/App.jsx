@@ -17,7 +17,8 @@ export default function App() {
   const handleLogin    = () => {
     if (role === "supervisor") setPage("dash-supervisor");
     else if (role === "rh")   setPage("dash-rh");
-    else                       setPage("dash-enfermero");
+    else if (role === "enfermero") setPage("dash-enfermero");
+    else throw new Error("Rol desconocido: " + role);
   };
 
   return (

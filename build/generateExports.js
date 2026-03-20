@@ -9,7 +9,7 @@ const TMP       = join(__dirname, "tmp");
 
 mkdirSync(TMP, { recursive: true });
 
-console.log("⚙️  Generando archivos de exportación...");
+console.log("Generando archivos de exportación...");
 
 const pyScript = join(__dirname, "generateFiles.py");
 execSync(`python3 ${pyScript} --out ${TMP}`, { stdio: "inherit" });

@@ -1,4 +1,3 @@
-// pages/enfermero/EntregaTurnoPage.jsx
 import { useState } from "react";
 import Button from "../../components/atoms/Button";
 import { IcSwap, IcCheckCircle, IcCheck } from "../../components/atoms/Icons";
@@ -20,7 +19,7 @@ export default function EntregaTurnoPage({ onLogout }) {
 
   return (
     <div style={{ padding:32, animation:"fadeUp .4s .05s ease both" }}>
-      {/* Header */}
+      {}
       <div style={{ display:"flex", alignItems:"flex-start", justifyContent:"space-between", marginBottom:24 }}>
         <div>
           <div style={{ fontFamily:"'TuFuente',sans-serif", fontSize:22, fontWeight:800 }}>Confirmar Entrega de Turno</div>
@@ -31,7 +30,7 @@ export default function EntregaTurnoPage({ onLogout }) {
         </div>
       </div>
 
-      {/* Checklist */}
+      {}
       <div style={{ background:"#fff", borderRadius:"var(--radius)", padding:"28px 32px", boxShadow:"var(--shadow-sm)", marginBottom:24 }}>
         <div style={{ fontFamily:"'TuFuente',sans-serif", fontSize:15, fontWeight:700, display:"flex", alignItems:"center", gap:8, marginBottom:20, color:"var(--blue)" }}>
           <IcCheckCircle s={18}/> Checklist de Tareas Finalizadas
@@ -46,7 +45,7 @@ export default function EntregaTurnoPage({ onLogout }) {
         ))}
       </div>
 
-      {/* Grid */}
+      {}
       <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:20, marginBottom:24 }}>
         <div style={{ background:"#fff", borderRadius:"var(--radius)", padding:24, boxShadow:"var(--shadow-sm)" }}>
           <div style={{ fontFamily:"'TuFuente',sans-serif", fontSize:14, fontWeight:700, marginBottom:16 }}>Observaciones Generales</div>
