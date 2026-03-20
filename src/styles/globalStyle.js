@@ -1,5 +1,10 @@
 const globalStyle = `
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  *, *::before, *::after { 
+    box-sizing: border-box; 
+    margin: 0; 
+    padding: 0; 
+    font-family: Arial, Helvetica, sans-serif; 
+  }
 
   :root {
     --blue:        #3D5BF5;
@@ -25,10 +30,10 @@ const globalStyle = `
   html, body, #root { height: 100%; }
 
   body {
-    font-family: Arial, Helvetica, sans-serif;
     background: var(--gray-bg);
     color: var(--text-dark);
     -webkit-font-smoothing: antialiased;
+    font-family: Arial, Helvetica, sans-serif;
   }
 
   @keyframes fadeUp {
@@ -49,10 +54,12 @@ const globalStyle = `
   }
 
   .page { 
-  animation: fadeIn .3s ease both; }
-  button { 
-  font-family: Arial, Helvetica, sans-serif; cursor: pointer; }
-  input, textarea, select { font-family: Arial, Helvetica, sans-serif; }
+    animation: fadeIn .3s ease both; 
+  }
+  button, input, textarea, select { 
+    cursor: pointer; 
+    font-family: inherit; 
+  }
 `;
 
 export default globalStyle;
