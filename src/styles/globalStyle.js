@@ -48,9 +48,11 @@ const globalStyle = `
     to   { opacity: 1; transform: scale(1); }
   }
 
-  .page { animation: fadeIn .3s ease both; }
-  button { font-family: 'DM Sans', sans-serif; }
-  input, textarea, select { font-family: 'DM Sans', sans-serif; }
+  .page { 
+  animation: fadeIn .3s ease both; }
+  button { 
+  font-family: Arial, Helvetica, sans-serif; cursor: pointer; }
+  input, textarea, select { font-family: Arial, Helvetica, sans-serif; }
 `;
 
 export default globalStyle;
