@@ -14,7 +14,7 @@
   --white:      #ffffff;
   --text-dark:  #0F1B3D;
   --text-mid:   #4A5578;
-  --text-soft:  #8C93AA;font-family: 'TuFuente', sans-serif;
+  --text-soft:  #8C93AA;
   --border:     #E2E5EF;
   --shadow-sm:  0 2px 8px  rgba(15,27,61,.07);
   --shadow-md:  0 8px 32px rgba(15,27,61,.12);
@@ -29,14 +29,14 @@ html, body, #root {
 }
 
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: 'DM Sans', sans-serif;
   background: var(--gray-bg);
   color: var(--text-dark);
   -webkit-font-smoothing: antialiased;
 }
 
-button { font-family: 'Inter', sans-serif; cursor: pointer; }
-input, textarea, select { font-family: 'Inter', sans-serif; }
+button { font-family: 'DM Sans', sans-serif; cursor: pointer; }
+input, textarea, select { font-family: 'DM Sans', sans-serif; }
 a { text-decoration: none; }
 
 @keyframes fadeUp {

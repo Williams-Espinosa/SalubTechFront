@@ -1,9 +1,12 @@
+// templates/DashboardLayout.jsx
+// Envuelve cualquier dashboard con sidebar + topbar.
+
 import Sidebar from "../organisms/Sidebar";
 import Topbar from "../organisms/Topbar";
 
 /**
- * @param {Array}    navItems    
- * @param {Array}    navSections 
+ * @param {Array}    navItems    - items planos para Sidebar
+ * @param {Array}    navSections - grupos de items para Sidebar (RH)
  * @param {string}   activeSection
  * @param {Function} onSectionChange
  * @param {Function} onLogout

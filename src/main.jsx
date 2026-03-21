@@ -10,7 +10,7 @@ class ErrorBoundary extends React.Component {
     if (this.state.error) {
       return (
         <div style={{ padding:40, fontFamily:"monospace", background:"#fff2f2", minHeight:"100vh" }}>
-          <h2 style={{ color:"red", marginBottom:16 }}>Error al renderizar</h2>
+          <h2 style={{ color:"red", marginBottom:16 }}>💥 Error al renderizar</h2>
           <pre style={{ background:"#fff", padding:20, borderRadius:8, fontSize:13, whiteSpace:"pre-wrap", border:"1px solid #fcc", overflowX:"auto" }}>
             {String(this.state.error)}
             {"\n\n--- Stack ---\n"}

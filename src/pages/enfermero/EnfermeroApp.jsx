@@ -1,6 +1,10 @@
-import { useState } from "react";
+// pages/enfermero/EnfermeroApp.jsx
+import { useState, useEffect } from "react";
 import DashboardLayout from "../../components/templates/DashboardLayout";
 import { IcActivity, IcClip, IcSwap } from "../../components/atoms/Icons";
+import { apiFetch } from "../../api/client";
+import { API } from "../../api/config";
+import { adaptPaciente, adaptTarea } from "../../api/adapters";
 import { PATIENTS, TASKS_INIT } from "../../constants/mockData";
 
 import DashboardHome    from "./DashboardHome";
@@ -13,12 +17,51 @@ const NAV_ITEMS = [
   { id:"entrega",   label:"Entrega Turno", icon: c => <IcSwap c={c} s={16}/> },
 ];
 
-export default function EnfermeroApp({ onLogout }) {
-  const [section, setSection]                   = useState("dashboard");
-  const [tasks, setTasks]                       = useState(TASKS_INIT);
-  const [selectedPatientId, setSelectedPatientId] = useState(PATIENTS[0].id);
+export default function EnfermeroApp({ onLogout, user }) {
+  const [section,  setSection]  = useState("dashboard");
+  const [patients, setPatients] = useState([]);
+  const [tasks,    setTasks]    = useState([]);
+  const [loading,  setLoading]  = useState(true);
+  const [selectedPatientId, setSelectedPatientId] = useState(null);
 
-  const toggleTask = id => setTasks(p => p.map(t => t.id === id ? { ...t, done: !t.done } : t));
+  useEffect(() => {
+    const load = async () => {
+      try {
+        const [rawPacs, rawTareas] = await Promise.all([
+          apiFetch(API.PACIENTES.LIST),
+          apiFetch(API.TAREAS.LIST),
+        ]);
+        const pacs   = Array.isArray(rawPacs)   ? rawPacs.map(adaptPaciente)   : PATIENTS;
+        const tareas = Array.isArray(rawTareas)  ? rawTareas.map(adaptTarea)   : TASKS_INIT;
+        setPatients(pacs);
+        setTasks(tareas);
+        setSelectedPatientId(pacs[0]?.id ?? null);
+      } catch (e) {
+        console.warn("Usando datos mock:", e.message);
+        setPatients(PATIENTS);
+        setTasks(TASKS_INIT);
+        setSelectedPatientId(PATIENTS[0]?.id ?? 1);
+      } finally {
+        setLoading(false);
+      }
+    };
+    load();
+  }, []);
+
+  const toggleTask = async (id) => {
+    // Optimistic UI
+    setTasks(p => p.map(t =>
+      t.id === id ? { ...t, done: !t.done } : t
+    ));
+    try {
+      // PATCH /api/v1/tareas/:id/estado — sin body hace toggle automático
+      await apiFetch(API.TAREAS.TOGGLE_ESTADO.replace(":id", id), { method: "PATCH" });
+    } catch (e) {
+      console.warn("Toggle tarea:", e.message);
+      // Revert on error
+      setTasks(p => p.map(t => t.id === id ? { ...t, done: !t.done } : t));
+    }
+  };
 
   const handleAtender = patientId => {
     setSelectedPatientId(patientId);
@@ -32,19 +75,26 @@ export default function EnfermeroApp({ onLogout }) {
         activeSection={section}
         onSectionChange={setSection}
         onLogout={onLogout}
-        userName="JOSE JOSE"
+        userName={user?.nombre_completo || "Enfermero"}
         userRole="Enfermero"
         searchPlaceholder="Buscar paciente..."
       >
         {section === "dashboard" && (
-          <DashboardHome tasks={tasks} onToggleTask={toggleTask} onAtender={handleAtender}/>
+          <DashboardHome
+            tasks={tasks}
+            patients={patients}
+            loading={loading}
+            onToggleTask={toggleTask}
+            onAtender={handleAtender}
+          />
         )}
         {section === "registros" && (
-          <RegistrosPage initialPatientId={selectedPatientId}/>
+          <RegistrosPage
+            patients={patients}
+            initialPatientId={selectedPatientId}
+          />
         )}
-        {section === "entrega" && (
-          <EntregaTurnoPage onLogout={onLogout}/>
-        )}
+        {section === "entrega" && <EntregaTurnoPage onLogout={onLogout}/>}
       </DashboardLayout>
     </div>
   );

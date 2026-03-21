@@ -1,8 +1,14 @@
+// atoms/Button.jsx
+
+/**
+ * Button atom reutilizable.
+ * variant: "primary" | "secondary" | "danger" | "ghost"
+ */
 export default function Button({ children, onClick, variant = "primary", disabled = false, fullWidth = false, style = {} }) {
   const base = {
     display:"inline-flex", alignItems:"center", justifyContent:"center", gap:8,
     padding:"12px 24px", borderRadius:"var(--radius-sm)", cursor: disabled ? "not-allowed" : "pointer",
-    fontFamily:"'TuFuente',sans-serif", fontSize:14, fontWeight:700, border:"none",
+    fontFamily:"'Syne',sans-serif", fontSize:14, fontWeight:700, border:"none",
     transition:"background .2s, transform .15s", width: fullWidth ? "100%" : undefined,
     opacity: disabled ? .55 : 1, ...style,
   };

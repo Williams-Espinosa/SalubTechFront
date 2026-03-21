@@ -1,10 +1,5 @@
 const globalStyle = `
-  *, *::before, *::after { 
-    box-sizing: border-box; 
-    margin: 0; 
-    padding: 0; 
-    font-family: Arial, Helvetica, sans-serif; 
-  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
     --blue:        #3D5BF5;
@@ -30,10 +25,10 @@ const globalStyle = `
   html, body, #root { height: 100%; }
 
   body {
+    font-family: 'DM Sans', sans-serif;
     background: var(--gray-bg);
     color: var(--text-dark);
     -webkit-font-smoothing: antialiased;
-    font-family: 'Inter', sans-serif; 
   }
 
   @keyframes fadeUp {
@@ -53,13 +48,9 @@ const globalStyle = `
     to   { opacity: 1; transform: scale(1); }
   }
 
-  .page { 
-    animation: fadeIn .3s ease both; 
-  }
-  button, input, textarea, select { 
-    cursor: pointer; 
-    font-family: inherit; 
-  }
+  .page { animation: fadeIn .3s ease both; }
+  button { font-family: 'DM Sans', sans-serif; }
+  input, textarea, select { font-family: 'DM Sans', sans-serif; }
 `;
 
-export default globalStyle; 
+export default globalStyle;

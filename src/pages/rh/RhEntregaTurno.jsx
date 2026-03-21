@@ -1,3 +1,4 @@
+// pages/rh/RhEntregaTurno.jsx
 import { useState } from "react";
 import Button from "../../components/atoms/Button";
 import Modal  from "../../components/molecules/Modal";
@@ -20,17 +21,17 @@ export default function RhEntregaTurno() {
 
   return (
     <div style={{ padding:32, animation:"fadeUp .4s .05s ease both" }}>
-      {}
+      {/* Header */}
       <div style={{ display:"flex", alignItems:"flex-start", justifyContent:"space-between", marginBottom:28 }}>
         <div>
-          <div style={{ fontFamily:"'TuFuente',sans-serif", fontSize:22, fontWeight:800 }}>Entrega de Turno</div>
+          <div style={{ fontFamily:"'Syne',sans-serif", fontSize:22, fontWeight:800 }}>Entrega de Turno</div>
           <div style={{ fontSize:13, color:"var(--text-mid)", marginTop:4 }}>Proceso de transición entre personal entrante y saliente.</div>
         </div>
         <Button onClick={() => setShowModal(true)}><IcPlus c="white" s={16}/> Nueva Entrega</Button>
       </div>
 
       <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:24 }}>
-        {}
+        {/* Turno info */}
         <div>
           <div style={{ background:"#fff", borderRadius:"var(--radius-sm)", padding:24, boxShadow:"var(--shadow-sm)", marginBottom:16 }}>
             <div style={{ display:"flex", alignItems:"center", gap:8, fontSize:13, fontWeight:600, color:"var(--blue)", marginBottom:20 }}>
@@ -43,9 +44,9 @@ export default function RhEntregaTurno() {
               </div>
             ))}
           </div>
-          {}
+          {/* Security reminder */}
           <div style={{ background:"var(--text-dark)", borderRadius:"var(--radius-sm)", padding:22 }}>
-            <div style={{ fontFamily:"'TuFuente',sans-serif", fontSize:14, fontWeight:700, color:"#fff", marginBottom:8 }}>Recordatorio de Seguridad</div>
+            <div style={{ fontFamily:"'Syne',sans-serif", fontSize:14, fontWeight:700, color:"#fff", marginBottom:8 }}>Recordatorio de Seguridad</div>
             <div style={{ fontSize:12.5, color:"rgba(255,255,255,.65)", lineHeight:1.6, marginBottom:14 }}>
               Recuerda validar el conteo de insumos críticos y medicamentos controlados antes de firmar la entrega.
             </div>
@@ -55,12 +56,12 @@ export default function RhEntregaTurno() {
           </div>
         </div>
 
-        {}
+        {/* Pendientes */}
         <div style={{ background:"#fff", borderRadius:"var(--radius-sm)", padding:24, boxShadow:"var(--shadow-sm)" }}>
-          <div style={{ fontFamily:"'TuFuente',sans-serif", fontSize:15, fontWeight:700, marginBottom:16 }}>Pendientes para el Siguiente Turno</div>
+          <div style={{ fontFamily:"'Syne',sans-serif", fontSize:15, fontWeight:700, marginBottom:16 }}>Pendientes para el Siguiente Turno</div>
           {PENDIENTES_TURNO.map((p,i) => (
             <div key={i} style={{ display:"flex", alignItems:"center", gap:14, padding:"14px 0", borderBottom: i<PENDIENTES_TURNO.length-1?"1px solid var(--border)":"none" }}>
-              <div style={{ width:28, height:28, borderRadius:"50%", background:p.done?"var(--green-light)":"var(--gray-bg)", display:"flex", alignItems:"center", justifyContent:"center", fontFamily:"'TuFuente',sans-serif", fontSize:13, fontWeight:700, flexShrink:0, color:p.done?"var(--green)":undefined }}>
+              <div style={{ width:28, height:28, borderRadius:"50%", background:p.done?"var(--green-light)":"var(--gray-bg)", display:"flex", alignItems:"center", justifyContent:"center", fontFamily:"'Syne',sans-serif", fontSize:13, fontWeight:700, flexShrink:0, color:p.done?"var(--green)":undefined }}>
                 {p.done ? <IcCheck c="var(--green)" s={12}/> : p.num}
               </div>
               <div style={{ flex:1 }}>
@@ -73,7 +74,7 @@ export default function RhEntregaTurno() {
         </div>
       </div>
 
-      {}
+      {/* Nueva Entrega Modal */}
       {showModal && (
         <Modal title="Nueva Entrega de Turno" subtitle="Completa los datos para la transición de mando." onClose={() => setShowModal(false)}>
           <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:14, marginBottom:16 }}>

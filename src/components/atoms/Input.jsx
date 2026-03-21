@@ -1,8 +1,10 @@
+// atoms/Input.jsx
 import { useState } from "react";
 
 /**
- * @param {ReactNode} icon   
- * @param {string}    type   
+ * Input atom con icono opcional.
+ * @param {ReactNode} icon   - icono a la izquierda
+ * @param {string}    type   - text | password | email
  */
 export default function Input({ icon, placeholder, value, onChange, type = "text", onKeyDown, style = {} }) {
   return (

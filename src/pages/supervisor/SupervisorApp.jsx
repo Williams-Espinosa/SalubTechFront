@@ -1,3 +1,4 @@
+// pages/supervisor/SupervisorApp.jsx
 import { useState } from "react";
 import DashboardLayout from "../../components/templates/DashboardLayout";
 import { IcActivity, IcClip, IcDoc, IcSwap } from "../../components/atoms/Icons";
@@ -14,7 +15,7 @@ const NAV_ITEMS = [
   { id:"entrega",   label:"Entrega Turno",  icon: c => <IcSwap c={c} s={16}/> },
 ];
 
-export default function SupervisorApp({ onLogout }) {
+export default function SupervisorApp({ onLogout, user }) {
   const [section, setSection] = useState("dashboard");
   return (
     <div className="page">
@@ -23,7 +24,7 @@ export default function SupervisorApp({ onLogout }) {
         activeSection={section}
         onSectionChange={setSection}
         onLogout={onLogout}
-        userName="Jose Luis"
+        userName={user?.nombre_completo || "Jose Luis"}
         userRole="Médico / Supervisor"
         searchPlaceholder="Buscar paciente..."
       >

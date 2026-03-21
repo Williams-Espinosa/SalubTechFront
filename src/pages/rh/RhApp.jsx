@@ -1,3 +1,4 @@
+// pages/rh/RhApp.jsx
 import { useState } from "react";
 import DashboardLayout from "../../components/templates/DashboardLayout";
 import { IcUser, IcClip, IcActivity, IcDoc, IcSwap } from "../../components/atoms/Icons";
@@ -26,7 +27,7 @@ const NAV_SECTIONS = [
   },
 ];
 
-export default function RhApp({ onLogout }) {
+export default function RhApp({ onLogout, user }) {
   const [section, setSection] = useState("personal");
   return (
     <div className="page">
@@ -35,7 +36,7 @@ export default function RhApp({ onLogout }) {
         activeSection={section}
         onSectionChange={setSection}
         onLogout={onLogout}
-        userName="Admin Intranet"
+        userName={user?.nombre_completo || "Admin Intranet"}
         userRole="Recursos Humanos"
         searchPlaceholder="Buscar paciente o registro..."
       >
