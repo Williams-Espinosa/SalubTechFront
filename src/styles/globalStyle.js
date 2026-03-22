@@ -24,8 +24,11 @@ const globalStyle = `
 
   html, body, #root { height: 100%; }
 
+  /* Force system Arial for all UI text */
+  * { font-family: Arial, Helvetica, sans-serif !important; }
+
   body {
-    font-family: 'DM Sans', sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     background: var(--gray-bg);
     color: var(--text-dark);
     -webkit-font-smoothing: antialiased;
@@ -49,8 +52,8 @@ const globalStyle = `
   }
 
   .page { animation: fadeIn .3s ease both; }
-  button { font-family: 'DM Sans', sans-serif; }
-  input, textarea, select { font-family: 'DM Sans', sans-serif; }
+  button { font-family: Arial, Helvetica, sans-serif; }
+  input, textarea, select { font-family: Arial, Helvetica, sans-serif; }
 `;
 
 export default globalStyle;

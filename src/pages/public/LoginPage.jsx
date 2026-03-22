@@ -1,4 +1,3 @@
-// pages/public/LoginPage.jsx
 import { useState } from "react";
 import { IcSteth, IcUser, IcLock, IcShield, IcArrow, IcArrowL } from "../../components/atoms/Icons";
 import Button from "../../components/atoms/Button";
@@ -12,7 +11,6 @@ const ROLE_LABELS = {
   rh:         "Acceso Administrativo para Recursos Humanos",
 };
 
-// Mapea el rol del backend al rol interno del frontend
 const BACKEND_ROL_MAP = {
   "Enfermero":  "enfermero",
   "Supervisor": "supervisor",
@@ -35,10 +33,8 @@ export default function LoginPage({ role, onBack, onLogin }) {
         body: JSON.stringify({ email, password }),
       });
 
-      // Guarda el token
       setToken(data.token);
 
-      // Determina el rol recibido del backend
       const backendRol = data.user?.rol;
       const frontendRol = BACKEND_ROL_MAP[backendRol] || role;
 
@@ -69,7 +65,7 @@ export default function LoginPage({ role, onBack, onLogin }) {
               <IcSteth s={28}/>
             </div>
           </div>
-          <div style={{ fontFamily:"'TuFuente',sans-serif", fontSize:22, fontWeight:800, color:"#fff" }}>SaludTech</div>
+          <div style={{ fontFamily:"'TuFuente',arial", fontSize:22, fontWeight:800, color:"#fff" }}>SaludTech</div>
           <div style={{ fontSize:13, color:"rgba(255,255,255,.75)", marginTop:6 }}>{ROLE_LABELS[role]}</div>
         </div>
 

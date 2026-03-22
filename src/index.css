@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap');
 
+/* Using system Arial for all UI text (removed Google Fonts) */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
@@ -29,14 +29,14 @@ html, body, #root {
 }
 
 body {
-  font-family: 'DM Sans', sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   background: var(--gray-bg);
   color: var(--text-dark);
   -webkit-font-smoothing: antialiased;
 }
 
-button { font-family: 'DM Sans', sans-serif; cursor: pointer; }
-input, textarea, select { font-family: 'DM Sans', sans-serif; }
+button { font-family: Arial, Helvetica, sans-serif; cursor: pointer; }
+input, textarea, select { font-family: Arial, Helvetica, sans-serif; }
 a { text-decoration: none; }
 
 @keyframes fadeUp {
@@ -57,3 +57,6 @@ a { text-decoration: none; }
 }
 
 .page { animation: fadeIn .3s ease both; }
+
+/* Force Arial globally to override inline font-family usages */
+* { font-family: Arial, Helvetica, sans-serif !important; }

@@ -67,7 +67,7 @@ export default function DashboardHome({ tasks = [], patients = [], loading = fal
         <div style={{ display:"grid", gridTemplateColumns:"1fr 340px", gap:24 }}>
           {}
           <div>
-            <div style={{ fontFamily:"'TuFuente',sans-serif", fontSize:16, fontWeight:700, display:"flex", alignItems:"center", gap:8, marginBottom:20 }}>
+            <div style={{ fontFamily:"'TuFuente',arial", fontSize:16, fontWeight:700, display:"flex", alignItems:"center", gap:8, marginBottom:20 }}>
               <IcUsers c="var(--text-dark)" s={16}/> Pacientes Asignados
               <span style={{ fontSize:13, color:"var(--blue)", fontWeight:500, marginLeft:"auto", cursor:"pointer" }}>Ver todos</span>
             </div>
@@ -81,7 +81,7 @@ export default function DashboardHome({ tasks = [], patients = [], loading = fal
 
           {}
           <div>
-            <div style={{ fontFamily:"'TuFuente',sans-serif", fontSize:16, fontWeight:700, display:"flex", alignItems:"center", gap:8, marginBottom:20 }}>
+            <div style={{ fontFamily:"'TuFuente',arial", fontSize:16, fontWeight:700, display:"flex", alignItems:"center", gap:8, marginBottom:20 }}>
               <IcClip c="var(--text-dark)" s={16}/> Tareas Pendientes
               <span style={{ marginLeft:"auto", background:"var(--blue-light)", color:"var(--blue)", fontSize:12, fontWeight:700, padding:"3px 8px", borderRadius:20 }}>{pending}</span>
             </div>

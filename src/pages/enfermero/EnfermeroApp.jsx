@@ -1,4 +1,3 @@
-// pages/enfermero/EnfermeroApp.jsx
 import { useState, useEffect } from "react";
 import DashboardLayout from "../../components/templates/DashboardLayout";
 import { IcActivity, IcClip, IcSwap } from "../../components/atoms/Icons";
@@ -54,11 +53,9 @@ export default function EnfermeroApp({ onLogout, user }) {
       t.id === id ? { ...t, done: !t.done } : t
     ));
     try {
-      // PATCH /api/v1/tareas/:id/estado — sin body hace toggle automático
       await apiFetch(API.TAREAS.TOGGLE_ESTADO.replace(":id", id), { method: "PATCH" });
     } catch (e) {
       console.warn("Toggle tarea:", e.message);
-      // Revert on error
       setTasks(p => p.map(t => t.id === id ? { ...t, done: !t.done } : t));
     }
   };
