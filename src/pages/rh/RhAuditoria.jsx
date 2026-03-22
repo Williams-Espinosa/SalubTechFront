@@ -1,4 +1,3 @@
-// pages/rh/RhAuditoria.jsx
 import { useState, useEffect } from "react";
 import Badge from "../../components/atoms/Badge";
 import { IcDoc } from "../../components/atoms/Icons";
@@ -112,7 +111,6 @@ export default function RhAuditoria() {
           )}
         </>
       ) : (
-        // Tab pacientes
         <div style={{ background:"#fff", borderRadius:"var(--radius-sm)", boxShadow:"var(--shadow-sm)", overflow:"hidden" }}>
           <table style={{ width:"100%", borderCollapse:"collapse" }}>
             <thead><tr style={{ background:"#FAFBFC" }}>

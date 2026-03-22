@@ -1,4 +1,3 @@
-// pages/rh/RhRegistros.jsx
 import { useState, useEffect } from "react";
 import { IcDoc, IcClock } from "../../components/atoms/Icons";
 import { apiFetch } from "../../api/client";
@@ -14,10 +13,8 @@ export default function RhRegistros() {
   useEffect(() => {
     const load = async () => {
       try {
-        // Usa notas generales como bitácora
         const data = await apiFetch(API.NOTAS.LIST);
         if (Array.isArray(data) && data.length) {
-          // Adapta notas como entradas de bitácora
           setLogs(data.map(n => ({
             event:  n.tipo_evento  || "Registro",
             user:   n.enfermero    || "Sistema",

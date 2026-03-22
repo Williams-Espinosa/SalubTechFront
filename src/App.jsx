@@ -12,8 +12,7 @@ import RhApp         from "./pages/rh/RhApp.jsx";
 export default function App() {
   const [page,     setPage]     = useState("hero");
   const [role,     setRole]     = useState(null);
-  const [authUser, setAuthUser] = useState(null);  // datos del usuario logueado
-
+  const [authUser, setAuthUser] = useState(null);  
   const goLogout = () => {
     clearToken();
     setAuthUser(null);
@@ -23,7 +22,6 @@ export default function App() {
 
   const handleSelectRole = r => { setRole(r); setPage("login"); };
 
-  // onLogin ahora recibe (rolFrontend, userData) desde LoginPage
   const handleLogin = (frontendRol, userData) => {
     setAuthUser(userData);
     setRole(frontendRol);

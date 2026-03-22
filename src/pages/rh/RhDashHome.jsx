@@ -1,4 +1,3 @@
-// pages/rh/RhDashHome.jsx
 import { IcUsers, IcActivity, IcClock, IcDoc } from "../../components/atoms/Icons";
 import { RH_ALERTS } from "../../constants/mockData";
 

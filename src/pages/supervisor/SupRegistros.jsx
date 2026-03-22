@@ -1,4 +1,3 @@
-// pages/supervisor/SupRegistros.jsx
 import { useState, useEffect } from "react";
 import Badge  from "../../components/atoms/Badge";
 import { IcUser, IcClock, IcFilter } from "../../components/atoms/Icons";

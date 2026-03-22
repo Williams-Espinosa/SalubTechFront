@@ -1,4 +1,3 @@
-// pages/enfermero/RegistrosPage.jsx
 import { useState } from "react";
 import Button from "../../components/atoms/Button";
 import { IcDoc, IcShield, IcCheckCircle, IcCheck } from "../../components/atoms/Icons";
@@ -18,7 +17,7 @@ export default function RegistrosPage({ patients = PATIENTS, initialPatientId })
   const [tipo,    setTipo]    = useState("");
   const [desc,    setDesc]    = useState("");
   const [saving,  setSaving]  = useState(false);
-  const [msg,     setMsg]     = useState(null); // { type:"ok"|"err", text }
+  const [msg,     setMsg]     = useState(null); 
 
   const patient  = norm.find(p => p.id === selId) || norm[0] || {};
   const initials = (patient.name||"?").split(" ").map(w=>w[0]).join("").slice(0,2).toUpperCase();
@@ -29,7 +28,6 @@ export default function RegistrosPage({ patients = PATIENTS, initialPatientId })
     if (desc.length < 10) return;
     setSaving(true);
     try {
-      // Backend espera: id_paciente, tipo_evento, descripcion, urgencia (bool)
       await apiFetch(API.NOTAS.CREATE, {
         method: "POST",
         body: JSON.stringify({
@@ -50,7 +48,7 @@ export default function RegistrosPage({ patients = PATIENTS, initialPatientId })
 
   return (
     <div style={{ padding:32, animation:"fadeUp .4s .05s ease both" }}>
-      {/* Header */}
+      {}
       <div style={{ display:"flex", alignItems:"flex-start", justifyContent:"space-between", marginBottom:28 }}>
         <div>
           <div style={{ fontFamily:"'TuFuente',sans-serif", fontSize:22, fontWeight:800 }}>Registrar Incidentes y Notas</div>
@@ -61,7 +59,7 @@ export default function RegistrosPage({ patients = PATIENTS, initialPatientId })
         </button>
       </div>
 
-      {/* Feedback */}
+      {}
       {msg && (
         <div style={{ borderRadius:"var(--radius-sm)", padding:"12px 16px", marginBottom:20, fontSize:13, fontWeight:600, display:"flex", alignItems:"center", gap:8, background: msg.type==="ok"?"var(--green-light)":"#FFF5F5", border:`1px solid ${msg.type==="ok"?"var(--green)":"var(--red)"}`, color: msg.type==="ok"?"var(--green)":"var(--red)" }}>
           {msg.type==="ok" ? <IcCheckCircle c="var(--green)" s={16}/> : "⚠️"} {msg.text}
@@ -69,7 +67,7 @@ export default function RegistrosPage({ patients = PATIENTS, initialPatientId })
       )}
 
       <div style={{ background:"#fff", borderRadius:"var(--radius)", padding:32, boxShadow:"var(--shadow-sm)" }}>
-        {/* Patient selector */}
+        {}
         <div style={{ marginBottom:24 }}>
           <div style={{ fontSize:10, fontWeight:700, letterSpacing:1.2, textTransform:"uppercase", color:"var(--text-soft)", marginBottom:10 }}>Paciente</div>
           <div style={{ display:"flex", gap:10, flexWrap:"wrap" }}>
@@ -105,7 +103,7 @@ export default function RegistrosPage({ patients = PATIENTS, initialPatientId })
           )}
         </div>
 
-        {/* Form */}
+        {}
         <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:20, marginBottom:20 }}>
           <div>
             <label style={{ display:"block", fontSize:10, fontWeight:700, letterSpacing:1.2, textTransform:"uppercase", color:"var(--text-soft)", marginBottom:8 }}>Tipo de Evento</label>

@@ -1,4 +1,3 @@
-// pages/supervisor/SupDashHome.jsx
 import { IcActivity, IcClock, IcUsers, IcArrow } from "../../components/atoms/Icons";
 import { SUP_STAFF } from "../../constants/mockData";
 

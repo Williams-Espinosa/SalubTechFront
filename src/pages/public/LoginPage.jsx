@@ -58,7 +58,7 @@ export default function LoginPage({ role, onBack, onLogin }) {
       </button>
 
       <div style={{ background:"#fff", borderRadius:"var(--radius)", overflow:"hidden", width:"100%", maxWidth:420, boxShadow:"var(--shadow-lg)", animation:"fadeUp .5s .1s ease both" }}>
-        {/* Header */}
+        {}
         <div style={{ background:"var(--blue)", padding:"36px 32px 32px", textAlign:"center" }}>
           <div style={{ display:"flex", justifyContent:"center" }}>
             <div style={{ width:56, height:56, borderRadius:16, background:"rgba(255,255,255,.2)", display:"inline-flex", alignItems:"center", justifyContent:"center", marginBottom:16 }}>
@@ -69,7 +69,7 @@ export default function LoginPage({ role, onBack, onLogin }) {
           <div style={{ fontSize:13, color:"rgba(255,255,255,.75)", marginTop:6 }}>{ROLE_LABELS[role]}</div>
         </div>
 
-        {/* Body */}
+        {}
         <div style={{ padding:32, display:"flex", flexDirection:"column", gap:20 }}>
           {error && (
             <div style={{ background:"#FFF5F5", border:"1px solid #FEB2B2", borderRadius:"var(--radius-sm)", padding:"10px 14px", fontSize:13, color:"var(--red)", display:"flex", alignItems:"center", gap:8 }}>

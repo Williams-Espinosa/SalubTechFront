@@ -2,7 +2,7 @@
 
 Sistema de gestión inteligente de cambios de turno hospitalario.
 
----
+--- 
 
 ## Estructura del proyecto (Atomic Design)
 

@@ -24,7 +24,6 @@ const globalStyle = `
 
   html, body, #root { height: 100%; }
 
-  /* Force system Arial for all UI text */
   * { font-family: Arial, Helvetica, sans-serif !important; }
 
   body {

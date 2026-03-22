@@ -1,4 +1,3 @@
-// pages/supervisor/SupervisorApp.jsx
 import { useState } from "react";
 import DashboardLayout from "../../components/templates/DashboardLayout";
 import { IcActivity, IcClip, IcDoc, IcSwap } from "../../components/atoms/Icons";

@@ -1,4 +1,3 @@
-// pages/supervisor/ValidarGuardia.jsx
 import { useState } from "react";
 import Button from "../../components/atoms/Button";
 import { IcSearch, IcClock, IcDoc, IcCheckCircle, IcCheck } from "../../components/atoms/Icons";

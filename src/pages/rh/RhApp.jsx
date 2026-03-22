@@ -1,4 +1,3 @@
-// pages/rh/RhApp.jsx
 import { useState } from "react";
 import DashboardLayout from "../../components/templates/DashboardLayout";
 import { IcUser, IcClip, IcActivity, IcDoc, IcSwap } from "../../components/atoms/Icons";

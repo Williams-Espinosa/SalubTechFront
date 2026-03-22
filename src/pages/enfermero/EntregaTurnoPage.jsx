@@ -1,4 +1,3 @@
-// pages/enfermero/EntregaTurnoPage.jsx
 import { useState } from "react";
 import Button from "../../components/atoms/Button";
 import { IcSwap, IcCheckCircle, IcCheck } from "../../components/atoms/Icons";
@@ -24,12 +23,11 @@ export default function EntregaTurnoPage({ onLogout }) {
   const handleFinalizar = async () => {
     setLoading(true);
     try {
-      // Finaliza el turno activo en el backend
       await apiFetch(API.TURNOS.INICIAR, { method: "POST" });
       onLogout();
     } catch (e) {
       console.warn("Error finalizando turno:", e.message);
-      onLogout(); // Cierra de todas formas
+      onLogout(); 
     } finally {
       setLoading(false);
     }
@@ -47,7 +45,7 @@ export default function EntregaTurnoPage({ onLogout }) {
         </div>
       </div>
 
-      {/* Checklist */}
+      {}
       <div style={{ background:"#fff", borderRadius:"var(--radius)", padding:"28px 32px", boxShadow:"var(--shadow-sm)", marginBottom:24 }}>
         <div style={{ fontFamily:"'TuFuente',sans-serif", fontSize:15, fontWeight:700, display:"flex", alignItems:"center", gap:8, marginBottom:20, color:"var(--blue)" }}>
           <IcCheckCircle s={18}/> Checklist de Tareas Finalizadas
@@ -62,7 +60,7 @@ export default function EntregaTurnoPage({ onLogout }) {
         ))}
       </div>
 
-      {/* Grid */}
+      {}
       <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:20, marginBottom:24 }}>
         <div style={{ background:"#fff", borderRadius:"var(--radius)", padding:24, boxShadow:"var(--shadow-sm)" }}>
           <div style={{ fontFamily:"'TuFuente',sans-serif", fontSize:14, fontWeight:700, marginBottom:16 }}>Observaciones Generales</div>

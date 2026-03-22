@@ -1,4 +1,3 @@
-// pages/rh/RhPersonal.jsx
 import { useState, useEffect } from "react";
 import Button  from "../../components/atoms/Button";
 import Badge   from "../../components/atoms/Badge";
@@ -40,7 +39,6 @@ export default function RhPersonal() {
     if (!form.nombre_completo || !form.email || !form.password || !form.curp) return;
     setSaving(true);
     try {
-      // POST /api/v1/auth/register — crea el usuario con contraseña
       const data = await apiFetch(API.AUTH.REGISTER, {
         method: "POST",
         body: JSON.stringify(form),
