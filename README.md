@@ -1,187 +1,147 @@
-# SaludTech — Hospital Management System
+# 🩺 SaludTech — Hospital Management System
 
-Sistema de gestión inteligente de cambios de turno hospitalario.
+![React](https://img.shields.io/badge/React-18.x-61DAFB?style=for-the-badge&logo=react&logoColor=black)
+![Vite](https://img.shields.io/badge/Vite-5.x-646CFF?style=for-the-badge&logo=vite&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![Atomic Design](https://img.shields.io/badge/Atomic_Design-Architecture-FF4081?style=for-the-badge)
 
---- 
+Plataforma frontend (SPA) diseñada para brindar a enfermeros, supervisores y recursos humanos una herramienta de gestión inteligente y fluida para cambios de turno, tareas y control de pacientes.
 
-## Estructura del proyecto (Atomic Design)
+---
 
+## 🚀 Características
+
+- 📦 **Interfaces especializadas** para múltiples roles de usuario operativos (Enfermero, Supervisor, RH).
+- 🔄 **Diseño Atómico (Atomic Design)** para garantizar la reutilización extrema de componentes.
+- 📋 **Exportación Documental** de bitácoras e incidentes en formato XPS/PDF/Excel.
+- 🖼️ **Experiencia Responsiva** adaptada al entorno dinámico de un hospital.
+- 🔐 **Comunicación Segura** orientada a consumir una API REST centralizada y autenticada.
+- 🔌 **Generación base64 nativa** empleando scripts de automatización híbridos (Node + Python).
+
+---
+
+## 🖥️ Arquitectura UI: Diseño Atómico
+
+El proyecto sigue metodologías estrictas de `Atomic Design` para mantener el código DRY, modular y fácil de escalar a medida que crece el sistema de pantallas del hospital.
+
+```text
+Componentes
+     │
+     ├── Atoms      (Botones, Badges, Inputs, Iconos)
+     ├── Molecules  (Tarjetas de paciente, Items de tarea, Modales)
+     ├── Organisms  (Sidebars, Topbars, Banners)
+     ├── Templates  (Layouts base con slots para contenido)
+     └── Pages      (Las vistas enrutadas completas)
 ```
+
+### Stack
+
+| Tecnología | Uso |
+|---|---|
+| **React 18** | Biblioteca para construir la UI declarativa |
+| **Vite 5** | Entorno de desarrollo ultrarrápido y bundler |
+| **CSS Modules / Vanilla** | Estilos estandarizados nativos y variables CSS |
+| **Fetch API** | Consumo nativo de la API REST del backend |
+| **Python** | Usado en *build-time* para generar artefactos descargables |
+
+---
+
+## 📁 Estructura del Proyecto
+
+```text
 saludtech/
-├── index.html
-├── package.json
-├── vite.config.js
 ├── build/
-│   ├── generateExports.js   ← script Node que genera exportFiles.js
-│   └── generateFiles.py     ← script Python que genera .xlsx y .pdf
-└── src/
-    ├── main.jsx             ← entry point React
-    ├── App.jsx              ← router raíz
-    │
-    ├── api/
-    │   ├── config.js        ← 🔌 ENDPOINTS — edita BASE_URL aquí
-    │   └── client.js        ← apiFetch() helper autenticado
-    │
-    ├── hooks/
-    │   └── useTimer.js      ← countdown hook
-    │
-    ├── styles/
-    │   └── globalStyle.js   ← CSS variables + animaciones
-    │
-    ├── constants/
-    │   ├── mockData.js      ← datos de prueba (reemplazar con API calls)
-    │   └── exportFiles.js   ← base64 de xlsx/pdf (auto-generado)
-    │
-    └── components/
-        │
-        ├── atoms/           ← unidades mínimas, sin estado propio
-        │   ├── Icons.jsx    ← todos los SVG del sistema
-        │   ├── Button.jsx   ← botón reutilizable (variantes)
-        │   ├── Badge.jsx    ← etiqueta de estado/prioridad
-        │   ├── Input.jsx    ← input con icono opcional
-        │   └── Avatar.jsx   ← iniciales sobre fondo de color
-        │
-        ├── molecules/       ← combinaciones de átomos
-        │   ├── PatientCard.jsx  ← tarjeta de paciente con botón Atender
-        │   ├── TaskItem.jsx     ← ítem de tarea con checkbox
-        │   └── Modal.jsx        ← overlay modal genérico
-        │
-        ├── organisms/       ← secciones completas de UI
-        │   ├── Sidebar.jsx      ← barra lateral (plana o por secciones)
-        │   ├── Topbar.jsx       ← barra superior con búsqueda y avatar
-        │   └── CookieBanner.jsx ← banner de cookies
-        │
-        ├── templates/       ← layouts reutilizables
-        │   ├── DashboardLayout.jsx  ← sidebar + topbar + slot de contenido
-        │   └── LandingLayout.jsx    ← navbar pública + slot de contenido
-        │
-        └── pages/
-            ├── public/
-            │   ├── HeroPage.jsx      ← landing con cookie banner
-            │   ├── ProfilePage.jsx   ← selección de perfil
-            │   ├── LoginPage.jsx     ← formulario de login
-            │   └── PrivacyPage.jsx   ← políticas de privacidad
-            │
-            ├── enfermero/
-            │   ├── EnfermeroApp.jsx  ← shell + router del dashboard
-            │   ├── DashboardHome.jsx ← resumen turno, pacientes, tareas
-            │   ├── RegistrosPage.jsx ← registro de incidentes y notas
-            │   └── EntregaTurnoPage.jsx ← checklist entrega de turno
-            │
-            ├── supervisor/
-            │   ├── SupervisorApp.jsx    ← shell + router
-            │   ├── SupDashHome.jsx      ← panel de control general
-            │   ├── ValidarGuardia.jsx   ← validar cierre de guardia
-            │   ├── SupRegistros.jsx     ← tabla de pacientes
-            │   └── SupEntregaTurno.jsx  ← entrega documentada
-            │
-            └── rh/
-                ├── RhApp.jsx           ← shell + router
-                ├── RhPersonal.jsx      ← gestión de colaboradores + modal
-                ├── RhAuditoria.jsx     ← incidentes y auditoría (2 tabs)
-                ├── RhDashHome.jsx      ← KPIs + gráfica + alertas
-                ├── RhRegistros.jsx     ← bitácora técnica + exportar XLS
-                └── RhEntregaTurno.jsx  ← turnos + modal nueva entrega
+│   ├── generateExports.js   # Script Node (generador base64 de reportes)
+│   └── generateFiles.py     # Script Python para manipular xlsx y pdf
+├── src/
+│   ├── api/
+│   │   ├── config.js        # Configuraciones y endpoints (API_URL)
+│   │   └── client.js        # Helper custom fetchAuth()
+│   ├── components/
+│   │   ├── atoms/           # Unidades mínimas de UI
+│   │   ├── molecules/       # Combinaciones de átomos
+│   │   ├── organisms/       # Secciones completas UI
+│   │   ├── templates/       # Layouts estructurales
+│   │   └── pages/           # Vistas categorizadas por rol (rh, enfermero, public)
+│   ├── constants/
+│   ├── hooks/               # Custom hooks (ej. useTimer)
+│   ├── styles/              # Reglas globales y variables visuales
+│   ├── App.jsx              # Router de nivel superior
+│   └── main.jsx             # Punto de montaje de React
+└── vite.config.js           # Configuración del dev server
 ```
 
 ---
 
-## Instalación y desarrollo
+## ⚙️ Instalación y Desarrollo
 
-```bash
-# Si ya hiciste npm install antes, borra primero node_modules
-rm -rf node_modules package-lock.json
+### Requisitos
+- Node.js ≥ 18
+- Python (Solo si se requiere regenerar exportables locales)
 
-npm install
-npm run dev          # servidor en http://localhost:3000
+### 1. Variables y Conexión al Backend
+
+Asegúrate de que el frontend está apuntando a tu API en `src/api/config.js`. Por defecto apunta al entorno de desarrollo del backend (`localhost:3000`).
+
+```javascript
+// src/api/config.js
+export const API = {
+  BASE_URL: "http://localhost:3000",
+  // ...
 ```
 
-> **Requiere Node.js ≥ 18.**  
-> Usa Vite 6 + `@vitejs/plugin-react-oxc` (compilador OXC, sin warnings).  
-> Si tienes Vite 8 instalado globalmente y prefieres no cambiar, instala manualmente:
-> ```bash
-> npm install @vitejs/plugin-react-oxc vite
-> ```
+### 2. Instalación
 
-## Generar archivos de exportación (XLS/PDF)
+Si previamente había un `node_modules`, se recomienda limpiar:
+```bash
+rm -rf node_modules package-lock.json
+npm install
+```
+
+### 3. Iniciar entorno Dev
 
 ```bash
+npm run dev
+```
+
+El servidor Vite levantará en **`http://localhost:5173`**.
+
+---
+
+## 📊 Automatización de Archivos Exportables (RH)
+
+Para el rol de Recursos Humanos, el sistema suministra reportes en base64 precompilados. Para regenerarlos si cambian los manuales base:
+
+```bash
+# Requiere python
 pip install openpyxl reportlab
 npm run generate-exports
 ```
-
-Esto ejecuta `build/generateFiles.py`, genera los archivos binarios y escribe
-`src/constants/exportFiles.js` con el base64 listo para usar en el frontend.
+Esto procesa los esquemas de archivos desde `build/` y vuelca la carga codificada en `src/constants/exportFiles.js`.
 
 ---
 
-## Conectar el backend
+## 🗺️ Flujo de Navegación del Sistema
 
-### 1 — Editar la URL base
-
-```js
-// src/api/config.js
-BASE_URL: "https://api.tudominio.com",   // ← cambia esto
-```
-
-Todas las rutas están documentadas en el mismo archivo con método HTTP y payload esperado.
-
-### 2 — Usar apiFetch() en cualquier componente
-
-```js
-import { apiFetch } from "../../api/client";
-import { API } from "../../api/config";
-
-// GET lista de pacientes
-const pacientes = await apiFetch(API.ENFERMERO.PACIENTES);
-
-// POST login
-const res = await apiFetch(API.AUTH.LOGIN, {
-  method: "POST",
-  body: JSON.stringify({ empleadoId, password, role }),
-});
-
-// GET con ruta dinámica
-const reporte = await apiFetch(
-  API.SUPERVISOR.REPORTE_DETAIL.replace(":id", reporteId)
-);
-
-// Descarga blob
-const blob = await apiFetch(API.RH.EXPORT_XLS, { blob: true });
-const url  = URL.createObjectURL(blob);
-```
-
-### 3 — Reemplazar mock data
-
-Cada página importa sus datos desde `src/constants/mockData.js`.
-Cuando tengas el backend listo, sustituye esas importaciones por llamadas a `apiFetch()`.
-
----
-
-## Flujo de navegación
-
-```
+```text
 HeroPage  →  ProfilePage  →  LoginPage
-                              ├── enfermero  →  EnfermeroApp
-                              │               (Dashboard / Registros / EntregaTurno)
-                              ├── supervisor →  SupervisorApp
-                              │               (Dashboard / ValidarGuardia / Registros / EntregaTurno)
-                              └── rh         →  RhApp
-                                              (Personal / Auditoría / Dashboard / Registros / EntregaTurno)
+                               ├── 👩‍⚕️ enfermero  →  Dashboard / Registros / EntregaTurno
+                               ├── 👨‍💼 supervisor →  Dashboard / ValidarGuardia / Registros
+                               └── 🏢 rh         →  Dashboard / Personal / Auditoría
 ```
 
----
-
-## Tecnologías
-
-| Capa        | Tecnología          |
-|-------------|---------------------|
-| UI          | React 18            |
-| Build       | Vite 5              |
-| Estilos     | CSS-in-JS (variables CSS nativas) |
-| HTTP        | Fetch API (nativa)  |
-| Exports     | openpyxl + reportlab (Python) |
+Cada ruta inyecta un `Layout` global que orquesta la barra lateral (`Sidebar`) y la barra superior (`Topbar`) con persistencia dinámica.
 
 ---
 
-© 2026 HospTrack Systems
+## 📄 Licencia
+
+![Licencia: Privada](https://img.shields.io/badge/Licencia-No_Comercial-red?style=for-the-badge)
+
+## Propiedad Intelectual
+
+Todo el contenido de este frontend de interfaz gráfica (código fuente, UI/UX, gráficos) está protegido bajo derechos de autor.
+* **Uso permitido:** Despliegue y operación interna dentro del ecosistema de la red hospitalaria.
+* **Prohibiciones:** Se prohíbe la clonación del theme, distribución de sus componentes de diseño, ingeniería inversa o uso comercial paralelo.
+
+> © 2026 **HospTrack Systems / SalubTech**. Todos los derechos reservados.
