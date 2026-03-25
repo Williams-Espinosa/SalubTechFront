@@ -2,19 +2,16 @@ import { useState } from "react";
 import LandingLayout from "../../components/templates/LandingLayout";
 import ConsentBanner from "../../components/organisms/ConsentBanner";
 import { IcUsers, IcShield, IcArrow } from "../../components/atoms/Icons";
+import nurseImage from "../../assets/hero-nurses.png";
 
-function HospitalImagePlaceholder() {
+function HospitalImage() {
   return (
-    <div style={{ width:"100%", height:"100%", background:"linear-gradient(135deg,#c7cfe8,#a8b4d8)", display:"flex", flexDirection:"column", alignItems:"center", justifyContent:"center", gap:12 }}>
-      <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
-        <rect x="10" y="20" width="60" height="50" rx="4" stroke="#6B7ABA" strokeWidth="2"/>
-        <rect x="30" y="40" width="20" height="30" fill="#6B7ABA" opacity=".3"/>
-        <rect x="20" y="30" width="10" height="10" rx="2" fill="#6B7ABA" opacity=".4"/>
-        <rect x="50" y="30" width="10" height="10" rx="2" fill="#6B7ABA" opacity=".4"/>
-        <line x1="40" y1="10" x2="40" y2="25" stroke="#6B7ABA" strokeWidth="2.5" strokeLinecap="round"/>
-        <line x1="33" y1="17" x2="47" y2="17" stroke="#6B7ABA" strokeWidth="2.5" strokeLinecap="round"/>
-      </svg>
-      <p style={{ color:"#6B7ABA", fontSize:13, fontWeight:500 }}>Imagen del hospital</p>
+    <div style={{ width:"100%", height:"100%", position:"relative" }}>
+      <img
+        src={nurseImage}
+        alt="Nurses and Medical Staff"
+        style={{ width:"100%", height:"100%", objectFit:"cover", display:"block" }}
+      />
     </div>
   );
 }
@@ -54,8 +51,8 @@ export default function HeroPage({ onStart, onPolicy }) {
         {}
         <div style={{ position:"relative", overflow:"hidden", background:"linear-gradient(135deg,#E8ECFF,#D6DCFF)" }}>
           <div style={{ position:"absolute", inset:0, display:"flex", alignItems:"center", justifyContent:"center", padding:"60px 48px 60px 24px", animation:"fadeUp .7s .25s ease both" }}>
-            <div style={{ width:"100%", maxWidth:480, borderRadius:24, overflow:"hidden", boxShadow:"var(--shadow-lg)", aspectRatio:"4/3" }}>
-              <HospitalImagePlaceholder/>
+            <div style={{ width:"100%", maxWidth:480, borderRadius:24, overflow:"hidden", boxShadow:"var(--shadow-lg)", aspectRatio:"16/10" }}>
+              <HospitalImage/>
             </div>
           </div>
         </div>

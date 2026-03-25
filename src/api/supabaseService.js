@@ -2,20 +2,26 @@ import { supabase } from '../supabaseClient';
 import bcrypt from 'bcryptjs';
 
 export const loginUser = async (email, password) => {
-  const { data: user, error } = await supabase
+  // 1. Autenticación nativa de Supabase (genera el JWT real)
+  const { data: authData, error: authError } = await supabase.auth.signInWithPassword({
+    email,
+    password,
+  });
+
+  if (authError) {
+    throw new Error(authError.message);
+  }
+
+  // 2. Obtener datos extendidos del perfil o usuario desde la tabla pública
+  const { data: user, error: userError } = await supabase
     .from('usuarios')
     .select('*')
     .eq('email', email)
     .single();
 
-  if (error || !user) {
-    throw new Error('Credenciales incorrectas o usuario no encontrado');
-  }
-
-  // Verificar la contraseña con bcrypt
-  const isValid = bcrypt.compareSync(password, user.password_hash);
-  if (!isValid) {
-    throw new Error('Credenciales incorrectas');
+  if (userError || !user) {
+    console.warn('Usuario autenticado en Auth pero no encontrado en tabla pública');
+    return { ...authData.user, rol: 'Enfermero', nombre_completo: authData.user.email };
   }
 
   return user;

@@ -31,8 +31,6 @@ export default function LoginPage({ role, onBack, onLogin }) {
     try {
       const user = await loginUser(email, password);
 
-      setToken("supa-token-" + user.id_usuario);
-
       const backendRol = user.rol;
       const frontendRol = BACKEND_ROL_MAP[backendRol] || role;
 
