@@ -5,6 +5,7 @@ import { apiFetch } from "../../api/client";
 import { API } from "../../api/config";
 import { adaptPaciente, adaptTarea } from "../../api/adapters";
 import { PATIENTS, TASKS_INIT } from "../../constants/mockData";
+import { fetchPacientes, fetchTareas, toggleTareaEstado } from "../../api/supabaseService";
 
 import DashboardHome    from "./DashboardHome";
 import RegistrosPage    from "./RegistrosPage";
@@ -27,11 +28,27 @@ export default function EnfermeroApp({ onLogout, user }) {
     const load = async () => {
       try {
         const [rawPacs, rawTareas] = await Promise.all([
-          apiFetch(API.PACIENTES.LIST),
-          apiFetch(API.TAREAS.LIST),
+          fetchPacientes(),
+          fetchTareas(),
         ]);
-        const pacs   = Array.isArray(rawPacs)   ? rawPacs.map(adaptPaciente)   : PATIENTS;
-        const tareas = Array.isArray(rawTareas)  ? rawTareas.map(adaptTarea)   : TASKS_INIT;
+        const pacs = rawPacs.map(p => ({
+            id: p.id_paciente,
+            name: p.nombre_completo,
+            dx: p.diagnostico_ingreso || "ND",
+            room: p.habitaciones?.numero_habitacion || p.id_habitacion,
+            status: p.estado_actual.toLowerCase(),
+        }));
+        
+        const tareas = rawTareas.map(t => ({
+            id: t.id_tarea,
+            patientId: t.id_paciente,
+            patientName: t.pacientes?.nombre_completo || "Paciente",
+            desc: t.descripcion_tarea,
+            time: new Date(t.created_at).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}),
+            done: t.estado === 'Completada',
+            rawEstado: t.estado,
+        }));
+
         setPatients(pacs);
         setTasks(tareas);
         setSelectedPatientId(pacs[0]?.id ?? null);
@@ -48,12 +65,15 @@ export default function EnfermeroApp({ onLogout, user }) {
   }, []);
 
   const toggleTask = async (id) => {
-    // Optimistic UI
+    const targetTask = tasks.find(t => t.id === id);
+    if (!targetTask) return;
+    
     setTasks(p => p.map(t =>
       t.id === id ? { ...t, done: !t.done } : t
     ));
     try {
-      await apiFetch(API.TAREAS.TOGGLE_ESTADO.replace(":id", id), { method: "PATCH" });
+      const nuevoEstado = await toggleTareaEstado(id, targetTask.rawEstado || (targetTask.done ? 'Completada' : 'Pendiente'));
+      setTasks(p => p.map(t => t.id === id ? { ...t, rawEstado: nuevoEstado } : t));
     } catch (e) {
       console.warn("Toggle tarea:", e.message);
       setTasks(p => p.map(t => t.id === id ? { ...t, done: !t.done } : t));

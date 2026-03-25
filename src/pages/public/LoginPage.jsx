@@ -4,6 +4,7 @@ import Button from "../../components/atoms/Button";
 import Input  from "../../components/atoms/Input";
 import { apiFetch, setToken } from "../../api/client";
 import { API } from "../../api/config";
+import { loginUser } from "../../api/supabaseService";
 
 const ROLE_LABELS = {
   enfermero:  "Acceso Para Enfermeros y Enfermeras",
@@ -28,17 +29,14 @@ export default function LoginPage({ role, onBack, onLogin }) {
     setLoading(true);
     setError("");
     try {
-      const data = await apiFetch(API.AUTH.LOGIN, {
-        method: "POST",
-        body: JSON.stringify({ email, password }),
-      });
+      const user = await loginUser(email, password);
 
-      setToken(data.token);
+      setToken("supa-token-" + user.id_usuario);
 
-      const backendRol = data.user?.rol;
+      const backendRol = user.rol;
       const frontendRol = BACKEND_ROL_MAP[backendRol] || role;
 
-      onLogin(frontendRol, data.user);
+      onLogin(frontendRol, user);
     } catch (err) {
       setError(err.message || "Credenciales incorrectas");
     } finally {
