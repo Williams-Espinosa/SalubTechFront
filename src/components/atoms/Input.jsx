@@ -4,7 +4,7 @@ import { useState } from "react";
  * @param {ReactNode} icon   
  * @param {string}    type   
  */
-export default function Input({ icon, placeholder, value, onChange, type = "text", onKeyDown, style = {} }) {
+export default function Input({ icon, placeholder, value, onChange, type = "text", onKeyDown, style = {}, ...props }) {
   return (
     <div style={{
       display:"flex", alignItems:"center",
@@ -22,6 +22,7 @@ export default function Input({ icon, placeholder, value, onChange, type = "text
         value={value}
         onChange={onChange}
         onKeyDown={onKeyDown}
+        {...props}
         style={{
           flex:1, border:"none", outline:"none",
           padding: icon ? "12px 12px 12px 0" : "12px 14px",
